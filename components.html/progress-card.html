@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doc</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: #343434;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .list-card{
+            padding: 10px 15px;
+            margin:10px auto;
+            color: white;
+            width: 90%;
+            background-color: #585858;
+            height: 100px;
+            position: relative;
+            box-sizing: border-box;
+            clip-path: inset(0 0 0 0 round 10px);
+        }
+        .list-card .progress-bar{
+            height: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(22,22,22);
+            opacity: 100%;
+            z-index: -1;
+        }
+        .card-details .card-title{
+            margin: 0;
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .card-details .card-description{
+            font-size: 12px;
+            word-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="list-card">
+        <div class="card-details">
+            <div class="progress-bar" progress="50"></div>
+            <h3 class="card-title">Generic To Do List Card</h3>
+            <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere reprehenderi</p>
+        </div>
+    </div>
+    <input style="margin:0 auto;display: block;width:90%;" type="range" min="0" max="100" value="50" step="1">
+
+    <script>
+        let isDragging = false;
+        
+        document.querySelector("input[type=range]").addEventListener('touchstart', function(event) {
+            isDragging = true;
+        });
+
+        document.addEventListener('touchmove', function(event) {
+            if (isDragging) {
+                document.querySelectorAll(".card-details .progress-bar").forEach(function(elem){
+                    let progress = event.target.value;
+                    elem.style = `width: ${progress}%; background: linear-gradient(90deg, rgba(${50-progress/2}, ${progress}, ${150-progress}, ${0.5 + progress/200}) 0%, rgba(${50-progress/2}, ${progress}, ${150-progress}, ${0.5 + progress/200}) 100%);`
+                });
+            }
+        });
+
+        document.addEventListener('touchend', function(event) {
+            isDragging = false;
+        });
+
+        document.querySelector("input[type=range]").addEventListener('mousedown', function(event) {
+            isDragging = true;
+        });
+
+        document.addEventListener('mousemove', function(event) {
+            if (isDragging) {
+                document.querySelectorAll(".card-details .progress-bar").forEach(function(elem){
+                    let progress = event.target.value;
+                    elem.style = `width: ${progress}%; background: linear-gradient(90deg, rgba(${50-progress/2}, ${progress}, ${150-progress}, ${0.5 + progress/200}) 0%, rgba(${50-progress/2}, ${progress}, ${150-progress}, ${0.5 + progress/200}) 100%);`
+                });
+            }
+        });
+
+        document.addEventListener('mouseup', function(event) {
+            if (isDragging) {
+                isDragging = false;
+                console.log('Drag ended');
+            }
+        });
+
+        document.querySelectorAll(".card-details .progress-bar").forEach(function(elem){
+            let progress = Number(elem.getAttribute('progress'));
+            elem.style = `width: ${progress}%; background: linear-gradient(90deg, rgba(${50-progress/2}, ${progress}, ${150-progress}, ${0.5 + progress/200}) 0%, rgba(${50-progress/2}, ${progress}, ${150-progress}, ${0.5 + progress/200}) 100%);`
+        });
+    </script>
+</body>
+</html>

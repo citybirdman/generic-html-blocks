@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+    <title>Document</title>
+    <style>
+        .body{
+            margin: 0;
+        }
+        .page-footer{
+            max-width: 1024px;
+            margin:0 auto;
+        }
+        .page-footer .quotes>*{
+            box-sizing: border-box;
+            width: calc(100%/3);
+            padding: 5px 10px;
+            display: inline-block;
+            text-wrap: wrap
+        }
+        .page-footer .quotes{
+            text-wrap: nowrap
+        }
+        .copyright{
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        @media only screen and (max-width: 750px) {
+            .page-footer .qoutes{
+                text-wrap: wrap;
+            }
+            .page-footer .quotes>*{
+                box-sizing: border-box;
+                width: 100%;
+                padding: 10px 20px;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <footer class="page-footer">
+        <div class="quotes">
+            <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, et tenetur soluta neque dolorem ex iste quidem placeat maxime architecto, nam reiciendis eveniet voluptatum, eligendi veniam aspernatur distinctio vel? Eius.</div>
+            <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, et tenetur soluta neque dolorem ex iste quidem placeat maxime architecto, nam reiciendis eveniet voluptatum, eligendi veniam aspernatur distinctio vel? Eius.</div>
+            <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, et tenetur soluta neque dolorem ex iste quidem placeat maxime architecto, nam reiciendis eveniet voluptatum, eligendi veniam aspernatur distinctio vel? Eius.</div>
+        </div>
+        <div class="copyright">
+            <p><copyright></copyright> copyright&copy; Reserved for Citybirdman</p>
+        </div>
+    </footer>
+    <script>
+        const copyright = document.querySelector("copyright");
+        copyright.innerHTML = (new Date()).getFullYear();
+        // const elems = document.querySelector(".page-footer .quotes")
+        // console.log(elems.children)
+
+        var firstname = document.querySelector(".quotes"),
+            parentHTML = firstname.parentNode.innerHTML,
+            newHTML = parentHTML.replace(/\>\s+\</g,'><');
+        firstname.parentNode.innerHTML = newHTML;
+    </script>
+</body>
+</html>
