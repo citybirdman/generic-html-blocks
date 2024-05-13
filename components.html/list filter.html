@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme-mode="dark" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Filter Interface</title>
+</head>
+<body>
+    <div class="filter-selector">
+        <div class="btn-group">
+            <button class="btn btn-sm filter-button btn-primary-light" data-original-title="" title="">
+                <span class="filter-icon active">
+                    <svg class="icon  icon-sm" style="">
+        <use class="" href="#icon-filter"></use>
+    </svg>
+                </span>
+                <span class="button-label hidden-xs">1 filter</span></button>
+            <button class="btn btn-default btn-sm filter-x-button" title="Clear all filters">
+                <span class="filter-icon">
+                    <svg class="icon  icon-sm" style="">
+        <use class="" href="#icon-filter-x"></use>
+    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="filter-area">
+        <div class="filter-edit-area">
+          <div class="text-muted empty-filters text-center" style="display: none;"> No filters selected </div>
+          <div class="filter-box">
+            <div class="visible-xs flex justify-flex-end">
+              <span class="remove-filter"> Remove </span>
+            </div>
+            <div class="list_filter row">
+              <div class="fieldname-select-area col-sm-4 ui-front form-group">
+                <div class="awesomplete">
+                  <input class="form-control input-xs" autocomplete="off" aria-expanded="false" aria-owns="awesomplete_list_42" role="combobox">
+                  <ul hidden="" role="listbox" id="awesomplete_list_42"></ul>
+                  <span class="visually-hidden" role="status" aria-live="assertive" aria-atomic="true">Begin typing for results.</span>
+                </div>
+              </div>
+              <div class="col-sm-3 form-group">
+                <select class="condition form-control input-xs">
+                  <option value="=">Equals</option>
+                  <option value="!=">Not Equals</option>
+                  <option value="like">Like</option>
+                  <option value="not like">Not Like</option>
+                  <option value="in">In</option>
+                  <option value="not in">Not In</option>
+                  <option value="is">Is</option>
+                  <option value=">" style="display: none;">&gt;</option>
+                  <option value="<" style="display: none;">&lt; </option>
+                  <option value=">=" style="display: none;">&gt;=</option>
+                  <option value="<=" style="display: none;">&lt;= </option>
+                  <option value="Between" style="display: none;">Between</option>
+                  <option value="Timespan" style="display: none;">Timespan</option>
+                  <option value="descendants of" style="display: none;">Descendants Of</option>
+                  <option value="not descendants of" style="display: none;">Not Descendants Of</option>
+                  <option value="ancestors of" style="display: none;">Ancestors Of</option>
+                  <option value="not ancestors of" style="display: none;">Not Ancestors Of</option>
+                  <option value="fiscal year" style="display: none;">Fiscal Year</option>
+                </select>
+              </div>
+              <div class="col-sm-4 form-group">
+                <div class="filter-field">
+                  <div class="form-group frappe-control input-max-width" data-fieldtype="Link" data-fieldname="name">
+                    <div class="link-field ui-front" style="position: relative;">
+                      <div class="awesomplete">
+                        <input type="text" class="input-with-feedback form-control input-xs" maxlength="1000" data-fieldtype="Link" data-fieldname="name" placeholder="" data-target="Stock Entry" autocomplete="off" aria-expanded="false" aria-owns="awesomplete_list_43" role="combobox" aria-activedescendant="awesomplete_list_43_item_0">
+                        <ul role="listbox" id="awesomplete_list_43" hidden="">
+                          <li aria-selected="true">
+                            <a>
+                              <p title="Create a new Stock Entry">
+                                <span class="text-primary link-option">
+                                  <i class="fa fa-plus" style="margin-right: 5px;"></i> Create a new Stock Entry </span>
+                              </p>
+                            </a>
+                          </li>
+                          <li>
+                            <a>
+                              <p title="Advanced Search">
+                                <span class="text-primary link-option">
+                                  <i class="fa fa-search" style="margin-right: 5px;"></i> Advanced Search </span>
+                              </p>
+                            </a>
+                          </li>
+                        </ul>
+                        <span class="visually-hidden" role="status" aria-live="assertive" aria-atomic="true" hidden="">2 results found</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-muted small filter-description"></div>
+              </div>
+              <div class="remove-filter col-sm-1 text-center hidden-xs">
+                <svg class="icon icon-sm">
+                  <use href="#icon-close" class="close"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="divider">
+        <div class="filter-action-buttons mt-2">
+          <button class="text-muted add-filter btn btn-xs"> + Add a Filter </button>
+          <div>
+            <button class="btn btn-secondary btn-xs clear-filters"> Clear Filters </button>
+            <button class="btn btn-primary btn-xs apply-filters"> Apply Filters </button>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

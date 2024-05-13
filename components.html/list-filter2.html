@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Document</title>
+    <style>
+        :root{
+            --font-size-13: 13px;
+        }
+        .filter-area{
+            max-width: 400px;
+            padding: 15px 20px;
+            background-color: #161a1f;
+            border-radius: 10px;
+            font-size: 13px;
+        }
+        .filter-edit-area{
+            display: flex;
+        }
+        .remove-filter{
+            height: 25px;
+            width: 25px;
+        }
+        .form-group{
+            padding: 0 2px;
+            font-size: 13px;
+        }
+        .form-group input, .form-group input:focus, .form-group select, .form-group select:focus{
+            font-size: var(--font-size-13);
+            background-color: #242a30;
+            border: 0;
+            outline: none;
+            color: white;
+        }
+        .form-group input:focus, .form-group select:focus{
+            box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 1px 1px;
+        }
+        .filter-action-buttons{
+            display: flex;
+            justify-content: space-between;
+        }
+        .filter-action-buttons button{
+            font-size: 50px;
+            padding: 1px 7px;
+            padding-top: 0px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="filter-selector" style="display: none;">
+        <div class="btn-group">
+            <button class="btn btn-sm filter-button btn-primary-light" data-original-title="" title="">
+                <span class="filter-icon active">
+                    <svg class="icon  icon-sm" style="">
+        <use class="" href="#icon-filter"></use>
+    </svg>
+                </span>
+                <span class="button-label hidden-xs">1 filter</span></button>
+            <button class="btn btn-default btn-sm filter-x-button" title="Clear all filters">
+                <span class="filter-icon">
+                    <svg class="icon  icon-sm" style="">
+        <use class="" href="#icon-filter-x"></use>
+    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="filter-area">
+        <div class="filter-edit-area">
+          <div class="text-muted empty-filters text-center" style="display: none;"> No filters selected </div>
+          <div class="filter-box">
+            <div class="list_filter row">
+              <div class="fieldname-select-area col-sm-4 ui-front form-group">
+                <div class="awesomplete">
+                  <input class="form-control input-xs" autocomplete="off" aria-expanded="false" aria-owns="awesomplete_list_42" role="combobox">
+                  <ul hidden="" role="listbox" id="awesomplete_list_42"></ul>
+                  <span class="visually-hidden" role="status" aria-live="assertive" aria-atomic="true">Begin typing for results.</span>
+                </div>
+              </div>
+              <div class="col-sm-3 form-group">
+                <select class="condition form-control input-xs">
+                  <option value="=">Equals</option>
+                  <option value="!=">Not Equals</option>
+                  <option value="like">Like</option>
+                  <option value="not like">Not Like</option>
+                  <option value="in">In</option>
+                  <option value="not in">Not In</option>
+                  <option value="is">Is</option>
+                  <option value=">" style="display: none;">&gt;</option>
+                  <option value="<" style="display: none;">&lt; </option>
+                  <option value=">=" style="display: none;">&gt;=</option>
+                  <option value="<=" style="display: none;">&lt;= </option>
+                  <option value="Between" style="display: none;">Between</option>
+                  <option value="Timespan" style="display: none;">Timespan</option>
+                  <option value="descendants of" style="display: none;">Descendants Of</option>
+                  <option value="not descendants of" style="display: none;">Not Descendants Of</option>
+                  <option value="ancestors of" style="display: none;">Ancestors Of</option>
+                  <option value="not ancestors of" style="display: none;">Not Ancestors Of</option>
+                  <option value="fiscal year" style="display: none;">Fiscal Year</option>
+                </select>
+              </div>
+              <div class="col-sm-4 form-group">
+                <div class="filter-field">
+                  <div class="form-group frappe-control input-max-width" data-fieldtype="Link" data-fieldname="name">
+                    <div class="link-field ui-front" style="position: relative;">
+                      <div class="awesomplete">
+                        <input type="text" class="input-with-feedback form-control input-xs" maxlength="1000" data-fieldtype="Link" data-fieldname="name" placeholder="" data-target="Stock Entry" autocomplete="off" aria-expanded="false" aria-owns="awesomplete_list_43" role="combobox" aria-activedescendant="awesomplete_list_43_item_0">
+                        <ul role="listbox" id="awesomplete_list_43" hidden="">
+                          <li aria-selected="true">
+                            <a>
+                              <p title="Create a new Stock Entry">
+                                <span class="text-primary link-option">
+                                  <i class="fa fa-plus" style="margin-right: 5px;"></i> Create a new Stock Entry </span>
+                              </p>
+                            </a>
+                          </li>
+                          <li>
+                            <a>
+                              <p title="Advanced Search">
+                                <span class="text-primary link-option">
+                                  <i class="fa fa-search" style="margin-right: 5px;"></i> Advanced Search </span>
+                              </p>
+                            </a>
+                          </li>
+                        </ul>
+                        <span class="visually-hidden" role="status" aria-live="assertive" aria-atomic="true" hidden="">2 results found</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-muted small filter-description"></div>
+              </div>
+              <div class="remove-filter col-sm-1 text-center hidden-xs">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="divider">
+        <div class="filter-action-buttons mt-2">
+          <button class="text-muted add-filter btn btn-xs"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          <div>
+            <button class="btn btn-secondary btn-xs clear-filters">
+                
+
+            </button>
+            <button class="btn btn-primary btn-xs apply-filters"> Apply Filters </button>
+          </div>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30">
+        <symbol viewBox="0 0 20 20" id="icon-filter-x" fill="white">
+            <path stroke-width="1.2" d="M8.5 3L3.66449 3.00002C2.99369 3.00002 2.62075 3.77596 3.0398 4.29977L8.15768 10.6971C8.29953 10.8744 8.37681 11.0947 8.37681 11.3218L8.37681 14.4565C8.37681 14.7713 8.525 15.0677 8.77681 15.2565L11.0852 16.9878C11.283 17.1362 11.5652 16.9951 11.5652 16.7478L11.5652 11.3742C11.5652 11.1155 11.6654 10.8669 11.8448 10.6806L12.5 10" stroke="var(--icon-stroke)" stroke-linecap="round"></path>
+            <path stroke-width="1.2" d="M11 3L16 8" stroke="var(--icon-stroke)" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path stroke-width="1.2" d="M16 3L11 8" stroke="var(--icon-stroke)" stroke-linecap="round" stroke-linejoin="round"></path>
+        </symbol>
+    </svg>
+</body>
+</html>
